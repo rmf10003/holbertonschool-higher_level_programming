@@ -5,7 +5,7 @@ def roman_to_int(rs):
     conv = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     ival = 0
     for l in range(len(rs)):
-        if l == 0 or conv[rs[l]] <= conv[rs[l]]:
+        if l == 0 or conv[rs[l]] <= conv[rs[l - 1]]:
             ival += conv[rs[l]]
         else:
             ival += conv[rs[l]] - 2 * conv[rs[l - 1]]
