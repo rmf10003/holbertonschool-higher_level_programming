@@ -1,0 +1,53 @@
+5/21
+0x06. Python - Classes and Objects
+
+def my_print(self):
+        """Print out a grid of # representing this square
+        Just print a blank line if this size is 0.
+        """
+
+        if self.__size == 0:
+            print()
+            return
+        for _ in range(self.__size):
+            print('#' * self.__size)
+sam explain your transgressions?? why is _?
+
+class A():
+    
+    def __init__(self):
+        self.__priv = "I am private"
+        self._prot = "I am protected"
+        self.pub = "I am public"
+why is there parens behind this A() in the def?
+
+who are these methods private from?
+why doesn't a setter work for init values?
+
+a class - creates a type and (objects) are instances of that class
+
+fields - variables that belong to an object or class
+       can be just one instance or for the entire class: instance variables and class variables respectively
+
+methods - funtions that belong to a class (can be used by objects of that class
+
+attributes - the collective fields and methods of a class aka property
+
+self - added to the beginning of the parameter list, however no value is imput for self parameter when
+ method is called (python provides the value).  self variable refers to the object itself.  
+
+__init__ method - runs as soon as an object of a class is instantiated (created).  it is useful for passing 
+initial values to your objects (initialization) 
+
+every object refers to its class via the self.__class__ attribute
+
+data encapsulation - the bundling of data with the methods that operate on these data
+
+information hiding - principal that some internal information or data is "hidden", so that it can't be accidentally changed.
+
+data abstraction = data encapsulation + data hiding
+
+@property - decorator for a method which is used for getting a value
+
+@<method_name>.setter - decorator for a function that has to function as the setter
+
