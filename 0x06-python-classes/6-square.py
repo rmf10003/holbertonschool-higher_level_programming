@@ -11,9 +11,15 @@ class Square(object):
         ValueError: if negative int
         TypeError: if not tup of 2 positive ints
     """
-    def __init__(self, size=0, position=(0,0)):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialize class with attributes."""
         self.__size = size
+        if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not all(isinstance(x, int) for x in value):
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif all(x < 0 for x in value):
+            raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = position
 
     @property
