@@ -51,3 +51,27 @@ data abstraction = data encapsulation + data hiding
 
 @<method_name>.setter - decorator for a function that has to function as the setter
 
+------------------------------------------------------------
+
+
+5/23
+0x07 test driven development
+
+use this at the end of a module to run tests on the docstrings
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod([verbose=True/False])
+
+run python3 -v to get a detailed list of all the tests run
+
+run useing this to avoid includeing the previous block in code
+python3 -m doctest -v example.py
+
+use this block at the end of code to test using a text file
+if __name__ == "__main__":
+   import doctest
+   doctest.testfile("test.txt")
+
+also analogously can run with this CLA instead of source block
+python -m doctest -v example.txt
+
