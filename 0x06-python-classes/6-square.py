@@ -15,6 +15,7 @@ class Square(object):
         """Initialize class with attributes."""
         self.size = size
         self.position = position
+
     @property
     def size(self):
         """Gets the value of __size
