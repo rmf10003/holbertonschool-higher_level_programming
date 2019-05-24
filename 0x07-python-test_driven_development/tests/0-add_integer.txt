@@ -1,0 +1,41 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+
+>>> add_integer(2, 4)
+6
+
+>>> add_integer(2.4, 3.7)
+5
+
+>>> li = [3, 4, 7]
+>>> di = {2: 4, 3: 1, 'horse': "flower"}
+>>> se = (3, 4, 7)
+>>> st = "string"
+>>> add_integer(li, 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(None)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(4, li)
+Traceback (most recent call last):
+TypeError: b must be an integer
+>>> add_integer(-4, 2.3)
+-2
+>>> add_integer(4, di)
+Traceback (most recent call last):
+TypeError: b must be an integer
+>>> add_integer(4, se)
+Traceback (most recent call last):
+TypeError: b must be an integer
+>>> add_integer(4, st)
+Traceback (most recent call last):
+TypeError: b must be an integer
+>>> add_integer(di, 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(se, 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
+>>> add_integer(st, 4)
+Traceback (most recent call last):
+TypeError: a must be an integer
