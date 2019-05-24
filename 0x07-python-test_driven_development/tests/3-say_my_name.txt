@@ -1,9 +1,9 @@
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 correct usage
->>> def say_my_name("Rory", "Fahy")
+>>> say_my_name("Rory", "Fahy")
 My name is Rory Fahy
->>> def say_my_name("Rory")
+>>> say_my_name("Rory")
 My name is Rory
 
 ----
@@ -11,30 +11,35 @@ not strings
 ----
 first not string
 
->>> def say_my_name(23)
+>>> say_my_name(23)
 Traceback (most recent call last):
 TypeError: first_name must be a string
->>> def say_my_name()
+
+not sure abut this one
+------
+------
+say_my_name()
 Traceback (most recent call last):
 TypeError: first_name must be a string
->>> def say_my_name(None)
+
+>>> say_my_name(None)
 Traceback (most recent call last):
 TypeError: first_name must be a string
->>> def say_my_name([32, 3], 34)
+>>> say_my_name([32, 3], 34)
 Traceback (most recent call last):
 TypeError: first_name must be a string
->>> def say_my_name(23, "fahy")
+>>> say_my_name(23, "fahy")
 Traceback (most recent call last):
 TypeError: first_name must be a string
 
 ----
 last not string
->>> def say_my_name("Rory", {"string": 32})
+>>> say_my_name("Rory", {"string": 32})
 Traceback (most recent call last):
 TypeError: last_name must be a string
->>> def say_my_name("Rory", 2)
+>>> say_my_name("Rory", 2)
 Traceback (most recent call last):
 TypeError: last_name must be a string
->>> def say_my_name("Rory", None)
+>>> say_my_name("Rory", None)
 Traceback (most recent call last):
 TypeError: last_name must be a string
