@@ -1,22 +1,55 @@
 >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
+correct usage
 >>> normal = [[1,2,3], [3,4,5], [5,6,7]]
 >>> normalB = [[1, 2, 3], [4, 5, 6]]
->>> m2 = [[1,2,3], [3,4,5], [5,6,7]]
->>> m3 = [[1,2,3], [3,4,5], [5,6,7]]
->>> m4 = None
+
 >>> print(matrix_divided(normal, 4))
 [[0.25, 0.5, 0.75], [0.75, 1.0, 1.25], [1.25, 1.5, 1.75]]
 >>> print(matrix_divided(normalB, 3))
 [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
+---
+not matrix of num lists error
+>>> not_all_int_float = [["string",2,3], [3,('ffff','3da'),5], [5,6,7]]
 >>> not_all_lists = [1, [2, 3], [4, 5]]
+>>> none_list = None
+>>> empty_list = []
+>>> list_of_empty_lists = [[],[],[]]
+
+>>> matrix_divided(not_all_int_float, 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 >>> matrix_divided(not_all_lists, 3)
 Traceback (most recent call last):
 TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided(none_list, 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided(empty_list, 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided(list_of_empty_lists, 3)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
->>> print(matrix_divided(normal, 3))
+-----
+
+not same size error
+>>> different_lengths = [[1,2,3,3], [3,2,1,4,5], [5,6,7]]
+
+>>> matrix_divided(different_lengths, 3)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+----- 
+
+tests for div var
+------
+div by zero
+>>> print(matrix_divided(normal, 0))
 Traceback (most recent call last):
 ZeroDivisionError: division by zero
 
->>>
+----
+
