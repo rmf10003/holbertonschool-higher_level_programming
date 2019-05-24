@@ -1,4 +1,9 @@
+#!/usr/bin/python3
+"""module"""
+
+
 def text_indentation(text):
+    """fctn"""
     if type(text) is not str:
         raise TypeError("text must be a string")
     punct = ('.', '?', ':')
