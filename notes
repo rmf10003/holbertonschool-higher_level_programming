@@ -75,3 +75,7 @@ if __name__ == "__main__":
 also analogously can run with this CLA instead of source block
 python -m doctest -v example.txt
 
+If expected output does contain a blank line, put <BLANKLINE> in your doctest example each place a blank line is expected.
+
+All hard tab characters are expanded to spaces, using 8-column tab stops.
+
