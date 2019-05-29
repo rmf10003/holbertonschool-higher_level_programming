@@ -10,7 +10,6 @@ class Rectangle:
         self.width = width
         self.height = height
 
-
     def __del__(self):
         """remove instance"""
         print("Bye rectangle...")
