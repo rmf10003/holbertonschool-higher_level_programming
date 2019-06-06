@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """mod docstr"""
-
 Rectangle = __import__('9-rectangle').Rectangle
+
 
 class Square(Rectangle):
     """class docstr"""
