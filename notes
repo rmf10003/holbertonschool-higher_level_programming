@@ -1,26 +1,6 @@
 5/21
 0x06. Python - Classes and Objects
 
-def my_print(self):
-        """Print out a grid of # representing this square
-        Just print a blank line if this size is 0.
-        """
-
-        if self.__size == 0:
-            print()
-            return
-        for _ in range(self.__size):
-            print('#' * self.__size)
-sam explain your transgressions?? why is _?
-
-class A():
-    
-    def __init__(self):
-        self.__priv = "I am private"
-        self._prot = "I am protected"
-        self.pub = "I am public"
-why is there parens behind this A() in the def?
-
 who are these methods private from?
 why doesn't a setter work for init values?
 
@@ -79,3 +59,9 @@ If expected output does contain a blank line, put <BLANKLINE> in your doctest ex
 
 All hard tab characters are expanded to spaces, using 8-column tab stops.
 
+_______
+
+5/29
+0x09 objects everywhere
+
+Since strings are immutable, Python optimizes resources by making two names that refer to the same string value refer to the same object.
