@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" script that adds all args to a python list and saves them to a file in json"""
+""" script that adds all args to a python list and saves them to a file"""
 from sys import argv
 import json
 
