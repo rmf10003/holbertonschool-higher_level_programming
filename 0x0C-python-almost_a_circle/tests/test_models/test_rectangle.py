@@ -10,6 +10,9 @@ class TestRectangle(unittest.TestCase):
     def setUp(self):
         Rectangle._Base__nb_objects = 0
 
+    def tearDown(self):
+        Rectangle._Base__nb_objects = 0
+
     def test_wrong_num_of_args(self):
         with self.assertRaises(TypeError, msg="__init__() missing 2 required positional arguments: 'width' and 'height'"):
             Rectangle()
@@ -95,4 +98,25 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(e.width, 4)
         self.assertEqual(e.x, 44)
 
+    def test_to_dictionary(self):
+        e = Rectangle(21, 32, 44, 21, 13)
+        a = e.to_dictionary()
+        self.assertEqual(a['width'], 21)
+        self.assertEqual(a['height'], 32)
+        self.assertEqual(a['x'], 44)
+        self.assertEqual(a['y'], 21)
+        self.assertEqual(a['id'], 13)
+        s = Rectangle(21, 32)
+        b = s.to_dictionary()
+        self.assertEqual(b['width'], 21)
+        self.assertEqual(b['height'], 32)
+        self.assertEqual(b['x'], 0)
+        self.assertEqual(b['y'], 0)
+        self.assertEqual(b['id'], 1)
 
+    def test_str(self):
+        s = '[Rectangle] (13) 44/21 - 21/32'
+        e = Rectangle(21, 32, 44, 21, 13)
+        self.assertEqual(str(e), s)
+
+    
