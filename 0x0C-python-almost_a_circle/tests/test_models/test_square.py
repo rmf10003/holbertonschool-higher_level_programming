@@ -19,7 +19,7 @@ class TestSquare(unittest.TestCase):
 
 
 
-    def test_wrong_num_of_args(self):
+    def test_wrongNumArgs(self):
         with self.assertRaises(TypeError, msg="__init__() missing 2 required positional arguments: 'width' and 'height'"):
             Rectangle()
         with self.assertRaises(TypeError, msg="__init__() missing 1 required positional argument: 'height'"):
