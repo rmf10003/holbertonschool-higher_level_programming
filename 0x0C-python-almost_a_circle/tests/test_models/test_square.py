@@ -15,10 +15,6 @@ class TestSquare(unittest.TestCase):
     def test_fromRect(self):
         self.assertTrue(issubclass(Square, Rectangle)
 
-        
-
-
-
     def test_wrongNumArgs(self):
         with self.assertRaises(TypeError, msg="__init__() missing 2 required positional arguments: 'width' and 'height'"):
             Rectangle()
