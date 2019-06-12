@@ -3,6 +3,7 @@
 import json
 import io
 import os.path
+import turtle
 
 
 class Base:
@@ -62,3 +63,20 @@ class Base:
             for item in list_output:
                 ret.append(cls.create(**item))
             return ret
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """draws all rectangles and squares in lists"""
+        for rectangle in list_rectangles + list_squares:
+            turtle.penup()
+            turtle.goto(rectangle.x, rectangle.y)
+            turtle.pendown()
+            turtle.setheading(0)
+            turtle.forward(rectangle.width)
+            turtle.left(90)
+            turtle.forward(rectangle.height)
+            turtle.left(90)
+            turtle.forward(rectangle.width)
+            turtle.left(90)
+            turtle.forward(rectangle.height)
+            turtle.left(90)
