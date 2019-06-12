@@ -18,13 +18,13 @@ class TestBase(unittest.TestCase):
         self.assertRaises(TypeError, Base, 23, 43)
         b = Base()
         self.assertEqual(b.id, 2)
-    
+
     def test_3None(self):
         a = Base(None)
         self.assertEqual(a.id, 1)
         b = Base()
         self.assertEqual(b.id, 2)
-        
+
     def test_4Id(self):
         b = Base()
         self.assertEqual(b.id, 1)
