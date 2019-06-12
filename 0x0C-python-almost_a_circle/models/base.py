@@ -2,6 +2,7 @@
 """module for Base class"""
 import json
 import io
+import os.path
 
 
 class Base:
@@ -32,7 +33,7 @@ class Base:
             else:
                 l = [obj.to_dictionary() for obj in list_objs]
                 file.write(cls.to_json_string(l))
-                    
+
     @staticmethod
     def from_json_string(json_string):
         """return list of the JSON string repr"""
@@ -49,7 +50,15 @@ class Base:
             a = cls(4)
         a.update(**dictionary)
         return a
-        
+
     @classmethod
     def load_from_file(cls):
         """return a list of instances from a JSON file"""
+        if not os.path.isfile("{}.json".format(cls.__name__)):
+            return []
+        with open(cls.__name__ + '.json', 'rt') as file:
+            list_output = cls.from_json_string(file.read())
+            ret = []
+            for item in list_output:
+                ret.append(cls.create(**item))
+            return ret
