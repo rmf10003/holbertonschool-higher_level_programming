@@ -8,10 +8,8 @@ from models.rectangle import Rectangle
 class TestRectangle(unittest.TestCase):
 
     def setUp(self):
-        Rectangle._Base__nb_objects = 0
-
-    def tearDown(self):
-        Rectangle._Base__nb_objects = 0
+        importlib.reload(models.rectangle)
+        importlib.reload(models.base)
 
     def test_wrong_num_of_args(self):
         with self.assertRaises(TypeError, msg="__init__() missing 2 required positional arguments: 'width' and 'height'"):

@@ -6,7 +6,9 @@ from models.base import Base
 class TestBase(unittest.TestCase):
 
     def setUp(self):
-        Base._Base__nb_objects = 0
+        importlib.reload(models.square)
+        importlib.reload(models.rectangle)
+        importlib.reload(models.base)
 
     def test_1NoArgs(self):
         b = Base()

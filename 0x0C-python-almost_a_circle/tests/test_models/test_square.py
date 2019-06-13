@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import unittest
 import io
+import importlib
 from contextlib import redirect_stdout
 from models.square import Square
 from models.base import Base
@@ -10,7 +11,9 @@ from models.rectangle import Rectangle
 class TestSquare(unittest.TestCase):
 
     def setUp(self):
-        Square._Base__nb_objects = 0
+        importlib.reload(models.square)
+        importlib.reload(models.rectangle)
+        importlib.reload(models.base)
     
     def test_fromRect(self):
         self.assertTrue(issubclass(Square, Rectangle))
