@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 import unittest
 import io
+import importlib
 from contextlib import redirect_stdout
 from models.rectangle import Rectangle
+import models.base
+import models.rectangle
 
 
 class TestRectangle(unittest.TestCase):

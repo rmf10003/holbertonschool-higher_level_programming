@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 import unittest
+import importlib
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+import models.base
+import models.rectangle
+import models.square
 
 
 class TestBase(unittest.TestCase):
