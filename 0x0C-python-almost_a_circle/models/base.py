@@ -64,6 +64,16 @@ class Base:
                 ret.append(cls.create(**item))
             return ret
 
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save to csv file"""
+        pass
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserialize from csv file"""
+        pass
+
     @staticmethod
     def draw(list_rectangles, list_squares):
         """draws all rectangles and squares in lists"""
