@@ -44,3 +44,7 @@ class TestBase(unittest.TestCase):
     def test_5NbObjs(self):
         c = Base()
         self.assertEqual(c.id, 1)
+
+    # def test_to_json_string(self):
+    #     ld = [{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]
+    #     self.assertEqual(

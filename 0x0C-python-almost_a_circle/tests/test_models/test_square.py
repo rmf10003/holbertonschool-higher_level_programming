@@ -74,6 +74,20 @@ class TestSquare(unittest.TestCase):
             a.display()
         self.assertEqual(f.getvalue(), s)
 
+        a = Square(2)
+        s = '##\n##\n'
+        f = io.StringIO()
+        with redirect_stdout(f):
+            a.display()
+        self.assertEqual(f.getvalue(), s)
+
+        a = Square(2, 1)
+        s = ' ##\n ##\n'
+        f = io.StringIO()
+        with redirect_stdout(f):
+            a.display()
+        self.assertEqual(f.getvalue(), s)
+
     def test_update(self):
         c = Square(21, 32, 44, 21)
         c.update(5, 4, 3, 2)
