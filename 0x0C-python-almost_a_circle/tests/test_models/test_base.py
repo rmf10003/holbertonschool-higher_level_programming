@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 import unittest
+import importlib
 from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
+import models.base
+import models.rectangle
+import models.square
 
 
 class TestBase(unittest.TestCase):
@@ -38,3 +44,7 @@ class TestBase(unittest.TestCase):
     def test_5NbObjs(self):
         c = Base()
         self.assertEqual(c.id, 1)
+
+    # def test_to_json_string(self):
+    #     ld = [{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]
+    #     self.assertEqual(

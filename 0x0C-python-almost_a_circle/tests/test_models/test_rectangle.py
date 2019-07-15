@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 import unittest
 import io
+import json
+import importlib
 from contextlib import redirect_stdout
 from models.rectangle import Rectangle
+import models.base
+import models.rectangle
 
 
 class TestRectangle(unittest.TestCase):
@@ -23,6 +27,8 @@ class TestRectangle(unittest.TestCase):
         e = Rectangle(14, 23)
         self.assertEqual(e.width, 14)
         self.assertEqual(e.height, 23)
+        self.assertEqual(e.x, 0)
+        self.assertEqual(e.y, 0)
 
     def test_keyWordArgs(self):
         c = Rectangle(width=34, height=3, id=4, x=2)
@@ -60,6 +66,11 @@ class TestRectangle(unittest.TestCase):
             Rectangle(2, 3, -4, 23)
         with self.assertRaises(ValueError, msg="y must be >= 0"):
             Rectangle(2, 3, 23, -2)
+        with self.assertRaises(ValueError, msg="width must be > 0"):
+            Rectangle(-1, 3)
+        with self.assertRaises(ValueError, msg="height must be > 0"):
+            Rectangle(2, -4)
+        
 
     def test_area(self):
         c = Rectangle(3, 4)
@@ -72,6 +83,20 @@ class TestRectangle(unittest.TestCase):
         with redirect_stdout(f):
             a.display()
         self.assertEqual(f.getvalue(), s)
+
+        b = Rectangle(2, 4)
+        r = '##\n##\n##\n##\n'
+        d = io.StringIO()
+        with redirect_stdout(d):
+            b.display()
+        self.assertEqual(d.getvalue(), r)
+
+        b = Rectangle(2, 4, 1)
+        r = ' ##\n ##\n ##\n ##\n'
+        d = io.StringIO()
+        with redirect_stdout(d):
+            b.display()
+        self.assertEqual(d.getvalue(), r)
 
     def test_update(self):
         c = Rectangle(21, 32, 44, 21, 13)
@@ -117,4 +142,38 @@ class TestRectangle(unittest.TestCase):
         e = Rectangle(21, 32, 44, 21, 13)
         self.assertEqual(str(e), s)
 
-    
+    def test_create(self):
+        s = '[Rectangle] (89) 0/0 - 4/2'
+        r = Rectangle.create(**{ 'id': 89 })
+        self.assertEqual(str(r), s)
+
+        s = '[Rectangle] (89) 0/0 - 1/2'
+        r = Rectangle.create(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(str(r), s)
+
+        s = '[Rectangle] (89) 0/0 - 1/3'
+        r = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 3 })
+        self.assertEqual(str(r), s)
+
+        s = '[Rectangle] (89) 3/0 - 1/3'
+        r = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 3, 'x': 3 })
+        self.assertEqual(str(r), s)
+
+        s = '[Rectangle] (89) 3/4 - 1/3'
+        r = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 3, 'x': 3, 'y':4 })
+        self.assertEqual(str(r), s)
+
+    def test_save_to_file(self):
+        r = Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            f = json.load(file)
+        self.assertEqual([], f)
+        r = Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            f = json.load(file)
+        self.assertEqual([], f)
+        s = [{'width': 1, 'y': 0, 'id': 1, 'x': 0, 'height': 2}]
+        r = Rectangle.save_to_file([Rectangle(1,2)])
+        with open("Rectangle.json", "r") as file:
+            f = json.load(file)
+        self.assertEqual(s, f)
