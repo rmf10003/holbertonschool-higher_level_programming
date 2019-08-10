@@ -12,7 +12,8 @@ if __name__ == '__main__':
                            db=argv[3],
                            charset='utf8')
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states WHERE name LIKE '{}' ORDER BY id ASC"
+    cur.execute("SELECT * FROM states\
+    WHERE name LIKE BINARY '{}' ORDER BY id ASC"
                 .format(argv[4]))
     query_rows = cur.fetchall()
     for row in query_rows:
