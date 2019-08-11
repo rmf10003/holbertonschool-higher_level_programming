@@ -19,8 +19,5 @@ if __name__ == '__main__':
     ORDER BY cities.id ASC",
                 (argv[4],))
     query_rows = cur.fetchall()
-    lis = []
-    for item in query_rows:
-        lis.append(item[0])
-    print(", ".join(lis))
+    print(", ".join(row[0] for row in query_rows))
     cur.close()
