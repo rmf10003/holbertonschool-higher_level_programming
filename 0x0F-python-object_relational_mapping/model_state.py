@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' module for state class'''
+""" module for state class"""
 
 
 from sqlalchemy import Column, Integer, String
