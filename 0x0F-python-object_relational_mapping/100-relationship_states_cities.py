@@ -3,8 +3,8 @@
 'san fran' from the db 'hbtn_0e_100_usa'"""
 
 from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
+from relationship_state import State
+from relationship_city import Base, City
 
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -19,7 +19,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    session.add(State(name="California",
-                      cities=[City(name='San Francisco')]))
+    casf = State(name="California",
+                 cities=[City(name='San Francisco')])
+    session.add(casf)
+    session.commit()
 
     session.close()
