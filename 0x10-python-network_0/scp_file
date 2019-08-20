@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Transfer file to home directory of remote server
+# re='^[0-9]+$'
+# argc="$#"
+# if [ "$argc" -ne 4 ]; then echo -e "ERR: Invalid arguments\nUSAGE: sudo ./ez_file_transfer.sh <user> <ip> <port> <file_to_transfer>"; exit 1; fi
+# if ! [[ $3 =~ $re ]] ; then echo -e "ERR: Invalid port number\nUSAGE: sudo ./ez_file_transfer.sh <user> <ip> <port> <file_to_transfer>"; exit 1; fi
+#command -v expect >/dev/null 2>&1 || (apt-get update && apt-get -y install expect)
+#scp -P "$3" "$4" "$1"@"$2":~/
+scp -P 46062 "$1" root@172.31.54.208:~/
