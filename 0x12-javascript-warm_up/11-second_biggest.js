@@ -11,7 +11,7 @@ if (second > first) {
   first ^= second;
   second ^= first;
 }
-for (let i = 0; i < argv.length; i++) {
+for (let i = 2; i < argv.length; i++) {
   if (argv[i] > first) {
     second = first;
     first = argv[i];
