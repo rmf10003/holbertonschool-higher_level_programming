@@ -28,3 +28,8 @@ Directories | Description
 [0x13-javascript_objects_scopes_closures](./0x13-javascript_objects_scopes_closures) | Intro to NodeJS
 [0x14-javascript-web_scraping](./0x14-javascript-web_scraping) | Using NodeJS for web scraping
 [0x15-javascript-web_jquery](./0x15-javascript-web_jquery) | Introduction to JQuery
+
+If you have any questions, please don't hesitate to reach out! I swear I don't byte: | 
+[LinkedIn](https://www.linkedin.com/in/rory-fahy-65743885/) |
+ [Twitter](https://twitter.com/Rory_Chillmore) |
+ [AmbientDJ landing page](https://kylelitscher.wixsite.com/ambientdj)
